@@ -10,11 +10,13 @@ def more(text):
             if reply == 'n':
                 break
 
-url = 'http://google.com/'  # προσδιορισμός του url
+url = input("Enter a url: ")
+if not url.startswith("http://"):
+    url = "http://" + url
 
 with requests.get(url) as response:  # το αντικείμενο response
-    html = response.text
-    more(html)
+    #html = response.text
+    #more(html)
 
     print(f"Website headers are {url} \n, {response.headers} \n\n")
 
@@ -25,6 +27,9 @@ with requests.get(url) as response:  # το αντικείμενο response
     else:
         print("Server not found")
 
-    cookies = response.cookies.get_dict()
+    cookies = response.headers.get('Set-Cookie')
 
-    print (cookies)
+    if cookies:
+        print(f"The cookie is{cookies}")
+    else:
+        print(f"No cookie found")
