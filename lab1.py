@@ -14,9 +14,8 @@ url = input("Enter a url: ")
 if not url.startswith("http://"):
     url = "http://" + url
 
-with requests.get(url) as response:  # το αντικείμενο response
-    #html = response.text
-    #more(html)
+with requests.get(url) as response:
+
 
     print(f"Website headers are {url} \n, {response.headers} \n\n")
 
