@@ -29,6 +29,6 @@ with requests.get(url) as response:
     cookies = response.headers.get('Set-Cookie')
 
     if cookies:
-        print(f"The cookie is{cookies}")
+        print(f"The cookie is {cookies}")
     else:
         print(f"No cookie found")
